@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+        targetNamespace="http://practice.com/FMW/BusinessService/BusinessServiceBPELProcess"
+        xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="BusinessRequest">
+    <complexType>
+      <sequence>
+        <element name="OrderID" type="integer"/>
+        <element name="ItemInfo" minOccurs="0" maxOccurs="unbounded">
+          <complexType>
+            <sequence>
+              <element name="ItemName" type="string"/>
+              <element name="ItemCost" type="integer"/>
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="BusinessResponce">
+    <complexType>
+      <sequence>
+        <element name="OrderID" type="integer"/>
+        <element name="ItemInfo" minOccurs="0" maxOccurs="unbounded">
+          <complexType>
+            <sequence>
+              <element name="ItemName" type="string"/>
+              <element name="ItemCost" type="integer"/>
+            </sequence>
+          </complexType>
+        </element>
+        <element name="TotalCost" type="integer"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>
