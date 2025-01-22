@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ArthematicBPELProcess" targetNamespace="http://practice/FMW/Arthamatic/ArthematicBPELProcess"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:client="http://practice/FMW/Arthamatic/ArthematicBPELProcess"
+                  xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	TYPE DEFINITION - List of services participating in this BPEL process
+	The default output of the BPEL designer uses strings as input and 
+	output to the BPEL Process. But you can define or import any XML 
+	Schema type and use them as part of the message types.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://practice/FMW/Arthamatic/ArthematicBPELProcess"
+              schemaLocation="../Schemas/ArthematicBPELProcess.xsd"/>
+    </schema>
+  </wsdl:types>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	MESSAGE TYPE DEFINITION - Definition of the message types used as 
+	part of the port type defintions
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <wsdl:message name="ArthematicBPELProcessRequestMessage">
+    <wsdl:part name="payload" element="client:Request"/>
+  </wsdl:message>
+  <wsdl:message name="ArthematicBPELProcessResponseMessage">
+    <wsdl:part name="payload" element="client:Response"/>
+  </wsdl:message>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	PORT TYPE DEFINITION - A port type groups a set of operations into
+	a logical service unit.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- portType implemented by the ArthematicBPELProcess BPEL process -->
+  <wsdl:portType name="ArthematicBPELProcess">
+    <wsdl:operation name="addRequest">
+      <wsdl:input message="client:ArthematicBPELProcessRequestMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="Subtraction">
+      <wsdl:input message="client:ArthematicBPELProcessRequestMessage"/>
+      <wsdl:output message="client:ArthematicBPELProcessResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!-- portType implemented by the requester of ArthematicBPELProcess BPEL process
+	for asynchronous callback purposes
+	-->
+  <wsdl:portType name="ArthematicBPELProcessCallback">
+    <wsdl:operation name="addResponse">
+      <wsdl:input message="client:ArthematicBPELProcessResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	PARTNER LINK TYPE DEFINITION
+	the ArthematicBPELProcess partnerLinkType binds the provider and
+	requester portType into an asynchronous conversation.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <plnk:partnerLinkType name="ArthematicBPELProcess">
+    <plnk:role name="ArthematicBPELProcessProvider" portType="client:ArthematicBPELProcess"/>
+    <plnk:role name="ArthematicBPELProcessRequester" portType="client:ArthematicBPELProcessCallback"/>
+  </plnk:partnerLinkType>
+</wsdl:definitions>

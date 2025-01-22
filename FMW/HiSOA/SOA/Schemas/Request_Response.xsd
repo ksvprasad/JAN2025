@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://practicetest.com/requestxsd"
+            targetNamespace="http://practicetest.com/requestxsd" elementFormDefault="qualified">
+  <xsd:element name="Request">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="username" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Response">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Result" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

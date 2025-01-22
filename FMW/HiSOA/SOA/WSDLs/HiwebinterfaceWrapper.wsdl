@@ -1,0 +1,21 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="Hiwebinterface"
+     targetNamespace="http://practicetest.com/FMW/HiSOA/Hiwebinterface"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:tns="http://practicetest.com/FMW/HiSOA/Hiwebinterface"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:ns1="http://practicetest.com/requestxsd"
+    >
+    <plnk:partnerLinkType name="HiSOAP">
+        <plnk:role name="Hi_Interface" portType="tns:Hi_Interface"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://practicetest.com/FMW/HiSOA/Hiwebinterface" location="Hiwebinterface.wsdl"/>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://practicetest.com/requestxsd" schemaLocation="../Schemas/Request_Response.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+</wsdl:definitions>

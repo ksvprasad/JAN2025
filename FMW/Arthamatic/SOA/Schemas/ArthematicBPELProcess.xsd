@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+        targetNamespace="http://practice/FMW/Arthamatic/ArthematicBPELProcess" xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="Request">
+    <complexType>
+      <sequence>
+        <element name="Number1" type="integer"/>
+        <element name="Number2" type="integer"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="Response">
+    <complexType>
+      <sequence>
+        <element name="result" type="string"/>
+        <element name="operation" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

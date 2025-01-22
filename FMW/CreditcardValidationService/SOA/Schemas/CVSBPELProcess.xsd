@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+        targetNamespace="http://practice.com/FMW/CreditcardValidationService/CVSBPELProcess"
+        xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="CreditcardRequest">
+    <complexType>
+      <sequence>
+        <element name="CCNumber" type="integer"/>
+        <element name="CCVendor" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="CreditcardResponse">
+    <complexType>
+      <sequence>
+        <element name="CCNumber" type="integer"/>
+        <element name="CCVendor" type="string"/>
+        <element name="CCStatus" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>
